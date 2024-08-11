@@ -1,0 +1,10 @@
+/home/svs/work/Go_Day02-1/materials
+/home/svs/work/Go_Day02-1/materials/folder1
+/home/svs/work/Go_Day02-1/materials/folder1/folder11
+/home/svs/work/Go_Day02-1/materials/folder2
+/home/svs/work/Go_Day02-1/materials/folder3
+/home/svs/work/Go_Day02-1/materials/folder4
+/home/svs/work/Go_Day02-1/materials/folder1/folder11/file.go
+/home/svs/work/Go_Day02-1/materials/folder1/newlink2 -> /home/svs/work/Go_Day02-1/materials/folder2/new.txt
+/home/svs/work/Go_Day02-1/materials/folder3/newlink -> /home/svs/work/Go_Day02-1/materials/folder4/new4.txt
+/home/svs/work/Go_Day02-1/materials/folder3/newlink41 -> [broken]
