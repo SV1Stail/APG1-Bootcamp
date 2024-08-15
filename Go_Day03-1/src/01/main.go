@@ -1,9 +1,9 @@
 package main
 
 import (
-	"01/db"
+	"01/server"
 	"fmt"
-	"log"
+	"net/http"
 
 	"github.com/elastic/go-elasticsearch/v8"
 )
@@ -25,25 +25,29 @@ func clientExist(client *elasticsearch.Client, indexName string) (bool, int, err
 }
 
 func main() {
-	client, err := elasticsearch.NewDefaultClient()
-	if err != nil {
-		log.Fatalf("Error creating the client: %v", err)
-	}
-	indexName := "places"
+	// client, err := elasticsearch.NewDefaultClient()
+	// if err != nil {
+	// 	log.Fatalf("Error creating the client: %v", err)
+	// }
+	// indexName := "places"
 
-	// clientExist(client, indexName)
+	// // clientExist(client, indexName)
 
-	store := db.NewElasticsearchStore(client, indexName)
-	var places []db.Place
-	var total int
-	places, total, err = store.GetPlaces(1000, 0)
-	if err != nil {
-		log.Fatalf("Error GetPlaces: %v", err)
-	}
-	log.Printf("Total places: %d\n", total)
-	for _, place := range places {
-		log.Printf("Place: %+v\n", place)
-	}
+	// store := db.NewElasticsearchStore(client, indexName)
+	// var places []db.Place
+	// var total int
+	// places, total, err = store.GetPlaces(1000, 0)
+	// if err != nil {
+	// 	log.Fatalf("Error GetPlaces: %v", err)
+	// }
+	// log.Printf("Total places: %d\n", total)
+	// for _, place := range places {
+	// 	log.Printf("Place: %+v\n", place)
+	// }
 
 	// store.GetPlaces(2, 0)
+	http.HandleFunc("/", server.HandlePlaces)
+	fmt.Println("Server is listening on port 8888...")
+	http.ListenAndServe(":8888", nil)
+
 }
