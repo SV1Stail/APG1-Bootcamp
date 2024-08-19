@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Places</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+<h5>Total: {{.Total}}</h5>
+<ul>
+    {{range .Places}}
+    <li>
+        <div>{{.Name}}</div>
+        <div>{{.Address}}</div>
+        <div>{{.Phone}}</div>
+        <div style="margin-top: 20px;"></div> 
+    </li>
+    {{end}}
+</ul>
+{{if gt .Page 1}}
+<a href="/?page={{ minus .Page 1 }}">Previous</a>
+{{end}}
+{{if lt .Page .TotalPages}}
+<a href="/?page={{ plus 1 .Page}}">Next</a>
+<a href="/?page={{.TotalPages}}">Total</a>
+{{end}}
+<div>
+    <p>
+        Текущая страница: {{.Page}}
+        <br>
+        Всего страниц: {{.TotalPages}}
+    </p>
+    
+</div>
+</body>
+</html>

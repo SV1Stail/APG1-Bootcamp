@@ -1,0 +1,39 @@
+TARGET Создать новый обработчик
+
+tasks
+1)  Напишите функцию, которая будет обрабатывать запросы на URL.
+
+2)    Эта функция должна извлекать параметр page из запроса и проверять его валидность 
+{
+    "error": "Invalid 'page' value: 'foo'"
+}
+
+3)  Формирование JSON-ответа. должен содержать информацию, аналогичную той, которая возвращалась в HTML-ответе
+    {
+  "name": "Places",
+  "total": 13649,
+  "places": [
+    {
+      "id": 65,
+      "name": "AZERBAJDZhAN",
+      "address": "gorod Moskva, ulitsa Dem'jana Bednogo, dom 4",
+      "phone": "(495) 946-34-30",
+      "location": {
+        "lat": 55.769830485601204,
+        "lon": 37.486914061171504
+      }
+    },
+    {
+      "id": 69,
+      "name": "Vojazh",
+      "address": "gorod Moskva, Beskudnikovskij bul'var, dom 57, korpus 1",
+      "phone": "(499) 485-20-00",
+      "location": {
+        "lat": 55.872553383512496,
+        "lon": 37.538326789741
+      }
+    },
+...
+
+4)  Установить заголовок Content-Type:
+    Обязательно установите заголовок Content-Type в application/json, чтобы клиент знал, что возвращается JSON-данные.
