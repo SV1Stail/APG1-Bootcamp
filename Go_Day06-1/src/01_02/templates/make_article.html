@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Создание Поста</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
+            color: #333;
+            text-align: center;
+            padding: 50px;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input[type="text"],
+        textarea {
+            margin-bottom: 20px;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #3498db;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-bottom: 20px;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        .container .home-button {
+            background-color: #6c757d; /* Цвет для кнопки "На главную" */
+        }
+        .container .home-button:hover {
+            background-color: #5a6268; /* Цвет при наведении для кнопки "На главную" */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Создать новый пост</h1>
+        <form action="/admin/insert" method="POST">
+            <label for="header">Заголовок (до 256 символов):</label>
+            <input type="text" id="header" name="header" maxlength="256" required>
+            
+            <label for="content">Текст поста:</label>
+            <textarea id="content" name="content" required></textarea>
+            
+            <button type="submit">Пост</button>
+        </form>
+        <button class="home-button" onclick="location.href='/'">На главную</button>
+    </div>
+</body>
+</html>

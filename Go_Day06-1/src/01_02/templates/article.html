@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Article Details</title>
+    <style>
+        body {
+            background: linear-gradient(to bottom right, rgba(50, 170, 206, 255), rgba(5, 246, 194, 255));
+            display: flex;
+            flex-direction: column;
+            align-items: center; 
+            justify-content: flex-start; 
+            height: 100vh;
+            margin: 0;
+            padding-top: 20px;
+            box-sizing: border-box;
+        }
+
+        .article-container {
+            background-color: #f8f8f8;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 20px;
+            max-width: 600px;
+            width: 100%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: left; /* Выравниваем текст по левому краю */
+        }
+
+        .article-header {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .article-body {
+            font-size: 18px;
+            margin-bottom: 20px;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            text-align: left; /* Убедимся, что текст выравнен по левому краю */
+        }
+
+        .article-timestamp {
+            font-size: 14px;
+            color: #777;
+            margin-bottom: 20px;
+        }
+
+        .back-button {
+            padding: 10px 20px;
+            font-size: 16px;
+            color: white;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        .back-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="article-container">
+        <div class="article-body">{{.MarkdownHeader}}</div>
+        <div class="article-body">{{.MarkdownBody}}</div>
+        <a href="/" class="back-button">Back to Main Page</a>
+    </div>
+</body>
+</html>

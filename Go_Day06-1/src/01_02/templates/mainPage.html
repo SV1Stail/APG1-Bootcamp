@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Website</title>
+    <style>
+ body {
+    background: linear-gradient(to bottom right, rgba(50, 170, 206, 255), rgba(5, 246, 194, 255));
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Центрирование по горизонтали */
+    justify-content: flex-start; /* Начало сверху */
+    height: 100vh;
+    margin: 0;
+    text-align: center;
+    padding-top: 20px; /* Отступ сверху для видимости */
+    box-sizing: border-box; /* Учитываем padding в размере элемента */
+}
+
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            width: 100%;
+            max-width: 600px;
+        }
+        li {
+            background-color: #f8f8f8;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            padding: 20px;
+            text-align: center;
+            word-wrap: break-word; /* Перенос длинных слов */
+            overflow-wrap: break-word; /* Перенос длинных слов */
+            margin: 10px;
+
+        }
+        h1, h2, p, button {
+            margin: 10px 0;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        img {
+            margin-top: 20px;
+        }
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            max-width: 600px;
+            margin-top: 20px;
+        }
+        .nav-buttons a {
+            text-decoration: none;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .nav-buttons a:hover {
+            background-color: #0056b3;
+        }
+        .nav-buttons a:disabled {
+            background-color: #ddd;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to My Website</h1>
+    <button onclick="location.href='/admin'">ADMIN</button>
+    <h2>Articles</h2>
+    <p>Here you can find some articles...</p>
+    <button onclick="location.href='/articles/?page=1'">ARTICLES</button>
+    <img src="/images/amazing_logo.png" alt="Image">
+    <ul>
+        {{range .MarkdownArticles}}
+        <li>
+            <a href="/article/?articleid={{.ID}}"><strong>{{.MarkdownHeader}}</strong></a>
+            <div>
+                {{if gt (len .MarkdownBody) 100}}
+                    {{slice .MarkdownBody 0 100}}...
+                {{else}}
+                    {{.MarkdownBody}}
+                {{end}}
+            </div>
+        </li>
+        {{end}}
+    </ul>
+    <div class="nav-buttons">
+        <a href="/articles/?page=1">NEXt</a>
+    </div>
+</body>
+</html>
