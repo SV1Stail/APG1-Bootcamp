@@ -1,0 +1,14 @@
+Showing nodes accounting for 5000ms, 68.40% of 7310ms total
+Dropped 124 nodes (cum <= 36.55ms)
+Showing top 10 nodes out of 86
+      flat  flat%   sum%        cum   cum%
+    1310ms 17.92% 17.92%     3490ms 47.74%  runtime.mallocgc
+     960ms 13.13% 31.05%      960ms 13.13%  runtime.nextFreeFast (inline)
+     770ms 10.53% 41.59%     5220ms 71.41%  runtime.growslice
+     640ms  8.76% 50.34%     6200ms 84.82%  01/firstfunc.MinCoins2
+     430ms  5.88% 56.22%      590ms  8.07%  runtime.roundupsize (inline)
+     220ms  3.01% 59.23%      350ms  4.79%  runtime.deductAssistCredit
+     200ms  2.74% 61.97%      200ms  2.74%  runtime.memclrNoHeapPointers
+     160ms  2.19% 64.16%      160ms  2.19%  runtime.acquirem (inline)
+     160ms  2.19% 66.35%      160ms  2.19%  runtime.divRoundUp (inline)
+     150ms  2.05% 68.40%      150ms  2.05%  runtime.memmove
