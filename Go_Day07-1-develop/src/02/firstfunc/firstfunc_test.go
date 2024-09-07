@@ -1,0 +1,60 @@
+package firstfunc
+
+import (
+	"reflect"
+	"testing"
+)
+
+// tests fpr MinCoins2
+func TestMinCoins2(t *testing.T) {
+	tests := []struct {
+		amount   int
+		coins    []int
+		expected []int
+	}{
+		{13, []int{1, 5, 10}, []int{10, 1, 1, 1}},
+		{13, []int{1, 3, 4}, []int{4, 4, 4, 1}},
+		{7, []int{1, 3, 4}, []int{4, 3}},
+		{18, []int{1, 5, 10}, []int{10, 5, 1, 1, 1}},
+		{23, []int{1, 7, 10}, []int{10, 10, 1, 1, 1}},
+		{100, []int{1, 5, 10, 25, 100}, []int{100}},
+		{15, []int{2, 3, 6, 7}, []int{7, 7, 2}}, // Проверка на возможность собрать с минимальным количеством элементов
+		{9, []int{2, 3, 5}, []int{5, 3, 2}},
+		{1, []int{2, 5, 10}, []int{2}}, // Невозможно собрать сумму
+		{100, []int{1, 5, 20, 50}, []int{50, 50}},
+	}
+
+	for _, test := range tests {
+		result := MinCoins2(test.amount, test.coins)
+		if !reflect.DeepEqual(result, test.expected) {
+			t.Errorf("For amount %d and coins %v, expected %v, but got %v", test.amount, test.coins, test.expected, result)
+		}
+	}
+
+}
+
+// benchmark of MinCoins to copmpare with  MinCoins2
+func BenchmarkMinCoins_1(b *testing.B) {
+
+	coins := []int{1, 10000, 50000, 100000}
+	val := 140000
+	b.ResetTimer()
+	for i := 0; i < b.N; i++ {
+
+		MinCoins(val, coins)
+
+	}
+}
+
+// benchmark of MinCoins2 to copmpare with  MinCoins
+func BenchmarkMinCoins2_1(b *testing.B) {
+
+	coins := []int{1, 10000, 50000, 100000}
+	val := 140000
+	b.ResetTimer()
+	for i := 0; i < b.N; i++ {
+
+		MinCoins2(val, coins)
+
+	}
+}
